@@ -11,14 +11,29 @@
 	    </div>
 	    <div class="navbar-collapse collapse navbar-warning-collapse">
 	    	<ul class="nav navbar-nav">
-				<li><a href="#">Noticias</a></li>
+				<li><%= link_to "Noticias", articles_path %></li>
 				<li><a href="#">Eventos</a></li>
 				<li><a href="#">Contacto</a></li>
 				<li><a href="#">Sobre GDG</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right" style="margin-right:20px;">
 	            <li class="dropdown">
-	                
+	                <% if user_signed_in? %>
+	                	<a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">
+	                		<%= current_user.email %> <b class="glyphicon glyphicon-option-vertical"></b>
+	                	</a>
+	                	<ul class="dropdown-menu">
+	                		<li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
+	                	</ul>
+                	<% else %>
+                		<a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">
+                		  	Entrar <b class="glyphicon glyphicon-option-vertical"></b>
+                		</a>
+                		<ul class="dropdown-menu">
+		                	<li><%= link_to "Iniciar sesión", new_user_session_path %></li>
+		                	<li><%= link_to "Crear cuenta", new_user_registration_path %></li>
+                		</ul>
+	                <% end %>
 	            </li>
 	        </ul>
 	    </div>
