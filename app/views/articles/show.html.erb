@@ -1,0 +1,15 @@
+<h1><%= @article.title %></h1>
+<div>
+	<p>
+		Escrito por:
+	</p>
+	<p>
+		Visitas: <%= @article.visits_count %>
+	</p>
+	<p>
+		<%= @article.body %>
+	</p>
+</div>
+<div>
+	<%= link_to "Editar", edit_article_path(@article) %>
+</div>

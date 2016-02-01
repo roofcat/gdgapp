@@ -1,25 +1,25 @@
 class ArticlesController < ApplicationController
 
-	before_action :set_article, except: [:show, :index]
+	before_action :set_article, except: [:index, :new, :create]
 
 	def index
-		@articles = Article.all
+		@articles = Article.ultimos
 	end
 
 	def show
+		@article.update_visits_count
 	end
 
 	def new
-		@article.update_visits_count
-		@comment = Comment.new
+		@article = Article.new
 	end
 
 	def edit
 	end
 
 	def create
-		@article = current_user.articles.new(article_params)
-		@article.categories = params[:categories]
+		@article = Article.new(article_params)
+		#@article.categories = params[:categories]
 
 		if @article.save
 			redirect_to @article
