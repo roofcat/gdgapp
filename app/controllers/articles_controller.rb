@@ -16,14 +16,15 @@ class ArticlesController < ApplicationController
 
 	def new
 		@article = Article.new
+		@categories = Category.all
 	end
 
 	def edit
 	end
 
 	def create
-		@article = Article.new(article_params)
-		#@article.categories = params[:categories]
+		@article = current_user.articles.new(article_params)
+		@article.categories = params[:categories]
 
 		if @article.save
 			redirect_to @article
@@ -57,7 +58,7 @@ class ArticlesController < ApplicationController
 		end
 
 		def article_params
-			params.require(:article).permit(:title, :body, :cover,)
+			params.require(:article).permit(:title, :body, :categories)
 		end
 
 end
