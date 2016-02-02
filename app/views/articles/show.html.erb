@@ -9,7 +9,7 @@
 		<% end %>
 	</div>
 	<div class="image image-rounded">
-		<%= image_tag @article.cover.url() %>
+		<%= image_tag @article.cover.url(:thumb) %>
 	</div>
 	<p>
 		Visitas: <%= @article.visits_count %>
