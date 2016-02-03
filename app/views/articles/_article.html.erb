@@ -1,0 +1,4 @@
+<h1><%= link_to article.title, article %></h1>
+<div>
+	<%= truncate(article.body, length: 50) %> - <%= link_to 'Eliminar', article, method: :delete %>
+</div>
