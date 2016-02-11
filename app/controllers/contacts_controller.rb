@@ -7,13 +7,6 @@ class ContactsController < ApplicationController
 	def show
 	end
 
-	def new
-		@contact = Contact.new
-	end
-
-	def edit
-	end
-
 	def create
 		@contact = Contact.new(contact_params)
 
@@ -27,14 +20,6 @@ class ContactsController < ApplicationController
 	def destroy
 		@contact.destroy
 		redirect_to contacts_path
-	end
-
-	def update
-		if @contact.update(contact_params)
-			redirect_to @contact
-		else
-			render :edit
-		end
 	end
 
 	private
