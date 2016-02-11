@@ -1,0 +1,8 @@
+<div class="panel">
+	<div class="panel-body">
+		<h1><%= link_to event.title, event %></h1>
+		<div>
+			<%= truncate(event.body, length: 50) %> - <%= link_to 'Eliminar', event, method: :delete %>
+		</div>
+	</div>
+</div>

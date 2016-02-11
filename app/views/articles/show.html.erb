@@ -1,34 +1,38 @@
-<h1><%= @article.title %></h1>
-<div>
-	<p>
-		Escrito por: <%= @article.user.email %>
-	</p>
-	<div>
-		<% @article.categories.each do |category| %>
-		<%= link_to category.name, category %>
-		<% end %>
+<div class="panel">
+	<div class="panel-body">
+		<h1><%= @article.title %></h1>
+		<div>
+			<p>
+				Escrito por: <%= @article.user.email %>
+			</p>
+			<div>
+				<% @article.categories.each do |category| %>
+				<%= link_to category.name, category %>
+				<% end %>
+			</div>
+			<div class="image image-rounded">
+				<%= image_tag @article.cover.url(:thumb) %>
+			</div>
+			<p>
+				Visitas: <%= @article.visits_count %>
+			</p>
+			<p>
+				<%= @article.body %>
+			</p>
+		</div>
+		<div>
+			<h3>Comentarios</h3>
+			<%= render 'comments/form' %>
+			<ul class="nav nav-pills nav-stacked" id="comments-box">
+				<% @article.comments.each do |comment| %>
+				<li>
+					<%= comment.body %> - <%= comment.user.email %>
+				</li>
+				<% end %>
+			</ul>
+		</div>
+		<div>
+			<%= link_to "Editar", edit_article_path(@article) %>
+		</div>
 	</div>
-	<div class="image image-rounded">
-		<%= image_tag @article.cover.url(:thumb) %>
-	</div>
-	<p>
-		Visitas: <%= @article.visits_count %>
-	</p>
-	<p>
-		<%= @article.body %>
-	</p>
-</div>
-<div>
-	<h3>Comentarios</h3>
-	<%= render 'comments/form' %>
-	<ul class="nav nav-pills nav-stacked" id="comments-box">
-		<% @article.comments.each do |comment| %>
-		<li>
-			<%= comment.body %> - <%= comment.user.email %>
-		</li>
-		<% end %>
-	</ul>
-</div>
-<div>
-	<%= link_to "Editar", edit_article_path(@article) %>
 </div>

@@ -1,6 +1,7 @@
 class ContactsController < ApplicationController
 
 	before_action :authenticate_admin!, only: [:destroy, :update]
+	before_action :set_contact, except: [:index, :new, :create]
 
 	def index
 		@contact = Contact.new

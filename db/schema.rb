@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160211142848) do
+ActiveRecord::Schema.define(version: 20160211200606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "about_gdgs", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -61,6 +68,17 @@ ActiveRecord::Schema.define(version: 20160211142848) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end
+
+  create_table "events", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "visits_count", default: 0
+    t.integer  "user_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "has_categories", force: :cascade do |t|
     t.integer  "article_id"
@@ -113,6 +131,7 @@ ActiveRecord::Schema.define(version: 20160211142848) do
   add_foreign_key "articles", "users"
   add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
+  add_foreign_key "events", "users"
   add_foreign_key "has_categories", "articles"
   add_foreign_key "has_categories", "categories"
 end
