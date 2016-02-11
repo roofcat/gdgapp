@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'about_gdg/controller'
+
   	resources :categories
   	
   	resources :contacts

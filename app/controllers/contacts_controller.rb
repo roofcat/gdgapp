@@ -1,5 +1,7 @@
 class ContactsController < ApplicationController
 
+	before_action :authenticate_admin!, only: [:destroy, :update]
+
 	def index
 		@contact = Contact.new
 	end
@@ -8,6 +10,7 @@ class ContactsController < ApplicationController
 	end
 
 	def new
+		redirect_to contacts_path
 	end
 
 	def create
@@ -23,6 +26,9 @@ class ContactsController < ApplicationController
 	def destroy
 		@contact.destroy
 		redirect_to contacts_path
+	end
+
+	def update
 	end
 
 	private
