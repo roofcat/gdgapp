@@ -35,13 +35,13 @@
 				<%= label_tag(:receive_information, '¿Deseas recibir información de eventos?') %>
 				<div class="radio radio-material-indigo">
 					<label>
-						<%= radio_button_tag(:receive_information, 'true', true, class: 'radio-button' ) %>
+						<%= radio_button_tag('contact[receive_information]', 'true', checked: true, class: 'radio-button') %>
 						<span class="circle"></span><span class="check"></span> Si
 					</label>
 				</div>
 				<div class="radio radio-material-indigo">
 					<label>
-						<%= radio_button_tag(:receive_information, 'false', class: 'radio-button' ) %>
+						<%= radio_button_tag('contact[receive_information]', 'false', false, class: 'radio-button') %>
 						<span class="circle"></span><span class="check"></span> No
 					</label>
 				</div>

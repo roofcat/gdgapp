@@ -57,9 +57,9 @@ ActiveRecord::Schema.define(version: 20160211142848) do
     t.string   "company"
     t.string   "position"
     t.text     "comment"
-    t.boolean  "receive_information"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.boolean  "receive_information", default: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   create_table "has_categories", force: :cascade do |t|

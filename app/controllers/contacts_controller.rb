@@ -7,13 +7,16 @@ class ContactsController < ApplicationController
 	def show
 	end
 
+	def new
+	end
+
 	def create
 		@contact = Contact.new(contact_params)
 
 		if @contact.save
 			redirect_to @contact
 		else
-			render :new
+			render :index
 		end
 	end
 
@@ -31,6 +34,6 @@ class ContactsController < ApplicationController
 		def contact_params
 			params.require(:contact).permit(:first_name, :last_name, :email,
 											:company, :position, :comment, 
-											:recive_information)
+											:receive_information)
 		end
 end
