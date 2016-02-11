@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  	resources :about_gdg
+  	resources :about_gdgs
 
   	resources :categories
   	

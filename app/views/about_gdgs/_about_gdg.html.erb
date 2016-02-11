@@ -1,0 +1,13 @@
+<div class="panel">
+	<div class="panel-body">
+		<h1><%= @about_gdg.title %></h1>
+		<div>
+			<p>
+				<%= @about_gdg.body %>
+			</p>
+		</div>
+		<div>
+			<%= link_to "Editar", edit_about_gdg_path(@about_gdg) %>
+		</div>
+	</div>
+</div>

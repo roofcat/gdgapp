@@ -10,6 +10,7 @@ class EventsController < ApplicationController
 	end
 
 	def show
+		@event.update_visits_count
 	end
 
 	def new
