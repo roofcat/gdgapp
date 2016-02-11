@@ -1,0 +1,54 @@
+<div class="panel">
+	<div class="panel-body">
+		<h1><%= name %></h1>
+		<%= form_for(@contact) do |f| %>
+			<% @contact.errors.full_messages.each do |message| %>
+				<div class="alert alert-warning">
+					* <%= message %>
+				</div>
+			<% end %>
+			<div class="form-group">
+				<%= label_tag(:first_name, 'Nombre') %>
+				<%= f.text_field :first_name, placeholder: 'Nombre', class:'form-control', required: true %>
+			</div>
+			<div class="form-group">
+				<%= label_tag(:last_name, 'Apellidos') %>
+				<%= f.text_field :last_name, placeholder: 'Apellidos', class:'form-control', required: true %>
+			</div>
+			<div class="form-group">
+				<%= label_tag(:email, 'Correo') %>
+				<%= f.email_field :email, placeholder: 'Correo', class:'form-control', required: true %>
+			</div>
+			<div class="form-group">
+				<%= label_tag(:company, 'Empresa') %>
+				<%= f.text_field :company, placeholder: 'Empresa', class:'form-control', required: true %>
+			</div>
+			<div class="form-group">
+				<%= label_tag(:position, 'Cargo') %>
+				<%= f.text_field :position, placeholder: 'Cargo', class:'form-control', required: true %>
+			</div>
+			<div class="form-group">
+				<%= label_tag(:comment, 'Descripción') %>
+				<%= f.text_area :comment, placeholder: 'Escribe aquí el artículo', class:'form-control', required: true %>
+			</div>
+			<div class="form-group">
+				<%= label_tag(:receive_information, '¿Deseas recibir información de eventos?') %>
+				<div class="radio radio-material-indigo">
+					<label>
+						<%= radio_button_tag(:receive_information, 'true', true, class: 'radio-button' ) %>
+						<span class="circle"></span><span class="check"></span> Si
+					</label>
+				</div>
+				<div class="radio radio-material-indigo">
+					<label>
+						<%= radio_button_tag(:receive_information, 'false', class: 'radio-button' ) %>
+						<span class="circle"></span><span class="check"></span> No
+					</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<%= f.submit 'Enviar', class:'btn btn-success' %>
+			</div>
+		<% end %>
+	</div>
+</div>
