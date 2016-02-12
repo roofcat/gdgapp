@@ -2,6 +2,8 @@ class Event < ActiveRecord::Base
   	
   	belongs_to :user
 
+  	has_many :comments, as: :commentable
+
   	validates :title, presence: true, uniqueness: true
 	validates :body, presence: true, length: { minimum: 20 }
 

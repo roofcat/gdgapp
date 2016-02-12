@@ -7,11 +7,11 @@ Rails.application.routes.draw do
   	resources :contacts
 
 	resources :articles do
-		resources :comments, only: [:create, :destroy, :update, :show]
+		resources :comments, module: :articles, only: [:create, :destroy, :update, :show]
 	end
 
 	resources :events do
-		
+		resources :comments, module: :events, only: [:create, :destroy, :update, :show]
 	end
   
 	devise_for :users

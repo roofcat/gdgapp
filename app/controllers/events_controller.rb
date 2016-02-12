@@ -11,6 +11,7 @@ class EventsController < ApplicationController
 
 	def show
 		@event.update_visits_count
+		@comment = Comment.new
 	end
 
 	def new
