@@ -22,7 +22,13 @@
 			<div class="form-group">
 				<div class="checkbox">
 					<% @categories.each do |category| %>
-					<%= check_box_tag "categories[]", category.id %> <%= category.name %>
+					<label>
+						<%= check_box_tag "categories[]", category.id %>
+						<span class="checkbox-material">
+							<span class="check"></span>
+						</span>
+						<%= category.name %>
+					</label>
 					<% end %>
 				</div>
 			</div>

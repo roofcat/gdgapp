@@ -1,7 +1,8 @@
 <ul class="nav nav-pills nav-stacked" id="comments-box">
 	<% commentable.comments.each do |comment| %>
 	<li>
-		<%= comment.body %> - <%= comment.user.email %>
+		<h5 class="text-warning"><b><%= comment.user.email %></b></h5>
+		<p><%= comment.body %></p>
 	</li>
 	<% end %>
 </ul>
