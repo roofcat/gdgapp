@@ -17,8 +17,9 @@ class Article < ActiveRecord::Base
 	has_attached_file :cover, styles: { medium: "1280x720", thumb: "800x600" }
 	validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
 
-	scope :publicados, -> { where(state: 'published') }
-	scope :ultimos, -> { order('created_at DESC') }
+	scope :publicados, -> { where(state: 'published').order('created_at DESC') }
+	scope :pendientes, -> { where(state: 'in_draft').order('created_at') }
+	scope :ultimos, -> { order('created_at DESC').limit(5) }
 
 
 	def update_visits_count

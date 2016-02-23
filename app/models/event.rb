@@ -9,6 +9,9 @@ class Event < ActiveRecord::Base
 
 	before_create :set_visits_count
 
+	scope :publicados, -> { order('created_at DESC') }
+	scope :ultimos, -> { order('created_at DESC').limit(5) }
+
 	def update_visits_count
 		self.update(visits_count: self.visits_count + 1)
 	end

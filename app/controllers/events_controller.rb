@@ -6,7 +6,7 @@ class EventsController < ApplicationController
 	before_action :authenticate_admin!, only: [:destroy, :publish]
 
 	def index
-		@events = Event.all
+		@events = Event.ultimos
 	end
 
 	def show

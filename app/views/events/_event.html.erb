@@ -2,7 +2,10 @@
 	<div class="panel-body">
 		<h1><%= link_to event.title, event %></h1>
 		<div>
-			<%= truncate(event.body, length: 50) %> - <%= link_to 'Eliminar', event, method: :delete %>
+			<%= truncate(event.body, length: 50) %>
+			<% if current_user.is_editor? %>
+				- <%= link_to 'Eliminar', event, method: :delete %>
+			<% end %>
 		</div>
 	</div>
 </div>
