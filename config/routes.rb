@@ -7,16 +7,16 @@ Rails.application.routes.draw do
 	resources :contacts
 
 	resources :articles do
-	resources :comments, module: :articles, only: [:create, :destroy, :update, :show]
+		resources :comments, module: :articles, only: [:create, :destroy, :update, :show]
 	end
 
 	resources :events do
-	resources :comments, module: :events, only: [:create, :destroy, :update, :show]
+		resources :comments, module: :events, only: [:create, :destroy, :update, :show]
 	end
 
 	devise_for :users
 
-	get '/dashboard' => 'dashboard#index'
+	get '/dashboard', to: 'dashboard#index'
 
 	root 'welcome#index'
 

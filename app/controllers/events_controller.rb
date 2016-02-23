@@ -44,6 +44,11 @@ class EventsController < ApplicationController
 		end
 	end
 
+	def publish
+		@event.publish!
+		redirect_to @event
+	end
+
 	private
 
 		def set_event

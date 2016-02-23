@@ -1,4 +1,6 @@
 class Event < ActiveRecord::Base
+
+	include AASM
   	
   	belongs_to :user
 
@@ -18,6 +20,20 @@ class Event < ActiveRecord::Base
 
 	def set_visits_count
 		self.visits_count ||= 0
+	end
+
+	aasm column: "state" do
+		state :in_draft, initial: true
+		state :published
+
+		event :published do
+			transitions from: :in_draft, to: :published
+		end
+
+		event :unpublished do
+			transitions from: :published, to: :in_draft
+		end
+
 	end
   	
 end
