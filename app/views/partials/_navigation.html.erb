@@ -23,6 +23,9 @@
 	                		<%= current_user.email %> <b class="glyphicon glyphicon-option-vertical"></b>
 	                	</a>
 	                	<ul class="dropdown-menu">
+	                		<% if current_user.is_editor? %>
+	                			<li><%= link_to "Dashboard", dashboard_path %></li>
+                			<% end %>
 	                		<li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
 	                	</ul>
                 	<% else %>
