@@ -21,7 +21,11 @@
 			<%= render partial: 'comments/comments', locals: {commentable: @event} %>
 		</div>
 		<div>
-			<%= link_to "Editar", edit_event_path(@event) %>
+			<% if user_signed_in? %>
+				<% if current_user.is_editor? %>
+					<%= link_to "Editar", edit_event_path(@event) %>
+				<% end %>
+			<% end %>
 		</div>
 	</div>
 </div>

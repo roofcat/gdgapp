@@ -26,7 +26,11 @@
 			<%= render partial:'comments/comments', locals: {commentable: @article} %>
 		</div>
 		<div>
-			<%= link_to "Editar", edit_article_path(@article) %>
+			<% if user_signed_in? %>
+				<% if current_user.is_editor? %>
+					<%= link_to "Editar", edit_article_path(@article) %>
+				<% end %>
+			<% end %>
 		</div>
 	</div>
 </div>
