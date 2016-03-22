@@ -1,1 +1,7 @@
+<% if user_signed_in? %>
+	<% if current_user.is_editor? %>
+		<%= link_to "Crear evento", new_event_path, class: "btn btn-sm btn-success" %>
+	<% end %>
+<% end %>
+
 <%= render @events %>

@@ -14,17 +14,15 @@
 
             <% if devise_mapping.rememberable? -%>
                 <div class="form-group">
-                    <div class="checkbox">
+                    <div class="checkbox checkbox-material-indigo">
                       <label>
                           <%= f.check_box :remember_me %>
-                          <span class="checkbox-material">
-                              <span class="check"></span>
-                          </span>
+                          <span class="checkbox-material"></span>
                           <%= f.label :remember_me, 'Recordarme' %>
                       </label>
                     </div>
                 </div>
-            <% end -%>
+            <% end %>
 
             <div class="form-group">
                 <%= f.submit "Entrar", class: 'btn btn-material-deep-orange' %>

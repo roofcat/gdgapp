@@ -7,7 +7,11 @@
 			</p>
 		</div>
 		<div>
-			<%= link_to "Editar", edit_about_gdg_path(@about_gdg) %>
+			<% if user_signed_in? %>
+				<% if current_user.is_admin? %>
+					<%= link_to "Editar", edit_about_gdg_path(@about_gdg) %>
+				<% end %>
+			<% end %>
 		</div>
 	</div>
 </div>

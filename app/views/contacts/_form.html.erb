@@ -7,31 +7,31 @@
 					* <%= message %>
 				</div>
 			<% end %>
-			<div class="form-group">
+			<div class="form-group form-group-material-indigo">
 				<%= label_tag(:first_name, 'Nombre') %>
 				<%= f.text_field :first_name, placeholder: 'Nombre', class:'form-control', required: true %>
 			</div>
-			<div class="form-group">
+			<div class="form-group form-group-material-indigo">
 				<%= label_tag(:last_name, 'Apellidos') %>
 				<%= f.text_field :last_name, placeholder: 'Apellidos', class:'form-control', required: true %>
 			</div>
-			<div class="form-group">
+			<div class="form-group form-group-material-indigo">
 				<%= label_tag(:email, 'Correo') %>
 				<%= f.email_field :email, placeholder: 'Correo', class:'form-control', required: true %>
 			</div>
-			<div class="form-group">
+			<div class="form-group form-group-material-indigo">
 				<%= label_tag(:company, 'Empresa') %>
 				<%= f.text_field :company, placeholder: 'Empresa', class:'form-control', required: true %>
 			</div>
-			<div class="form-group">
+			<div class="form-group form-group-material-indigo">
 				<%= label_tag(:position, 'Cargo') %>
 				<%= f.text_field :position, placeholder: 'Cargo', class:'form-control', required: true %>
 			</div>
-			<div class="form-group">
+			<div class="form-group form-group-material-indigo">
 				<%= label_tag(:comment, 'Mensaje') %>
-				<%= f.text_area :comment, placeholder: 'Escribe aquí tu mensaje', class:'form-control', required: true %>
+				<%= f.text_area :comment, placeholder: 'Escribe aquí tu mensaje', class:'form-control', required: true, rows: 10 %>
 			</div>
-			<div class="form-group">
+			<div class="form-group form-group-material-indigo">
 				<%= label_tag(:receive_information, '¿Deseas recibir información de eventos?') %>
 				<div class="radio radio-material-indigo">
 					<label>

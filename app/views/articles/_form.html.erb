@@ -7,16 +7,16 @@
 					* <%= message %>
 				</div>
 			<% end %>
-			<div class="form-group">
+			<div class="form-group form-group-material-indigo">
 				<%= label_tag(:title, 'Título') %>
 				<%= f.text_field :title, placeholder: 'Título', class:'form-control' %>
 			</div>
-			<div class="form-group">
+			<div class="form-group form-group-material-indigo">
 				<b>Portada:</b> <%= f.file_field :cover %>
 			</div>
-			<div class="form-group">
+			<div class="form-group form-group-material-indigo">
 				<%= label_tag(:body, 'Descripción') %>
-				<%= f.text_area :body, placeholder: 'Escribe aquí el artículo', class:'form-control' %>
+				<%= f.text_area :body, placeholder: 'Escribe aquí el artículo', class:'form-control', rows: 20 %>
 			</div>
 			<label>Categorías</label>
 			<div class="form-group">
@@ -25,7 +25,7 @@
 					<label>
 						<%= check_box_tag "categories[]", category.id %>
 						<span class="checkbox-material">
-							<span class="check"></span>
+							<span class="checkbox-material"></span>
 						</span>
 						<%= category.name %>
 					</label>
