@@ -11,6 +11,9 @@ class Event < ActiveRecord::Base
 
 	before_create :set_visits_count
 
+	has_attached_file :cover, styles: { medium: "1280x720", thumb: "800x600" }
+	validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
+
 	scope :publicados, -> { order('created_at DESC') }
 	scope :ultimos, -> { order('created_at DESC').limit(5) }
 

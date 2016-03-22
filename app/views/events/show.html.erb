@@ -5,6 +5,9 @@
 			<p>
 				Escrito por: <%= @event.user.email %>
 			</p>
+			<div class="image image-rounded">
+				<%= image_tag @event.cover.url(:thumb) %>
+			</div>
 			<p>
 				Visitas: <%= @event.visits_count %>
 			</p>

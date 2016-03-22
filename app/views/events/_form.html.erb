@@ -12,6 +12,9 @@
 				<%= f.text_field :title, placeholder: 'Nombre del evento', class:'form-control' %>
 			</div>
 			<div class="form-group form-group-material-indigo">
+				<b>Portada:</b> <%= f.file_field :cover %>
+			</div>
+			<div class="form-group form-group-material-indigo">
 				<%= label_tag(:body, 'Descripción') %>
 				<%= f.text_area :body, placeholder: 'Escribe la descripción del evento', class:'form-control', rows: 20 %>
 			</div>
