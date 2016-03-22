@@ -1,5 +1,8 @@
 <div class="panel">
 	<div class="panel-body">
+		<div class="image image-rounded">
+			<%= image_tag event.cover.url(:thumb), style: 'width: 100%; height: 100px;' %>
+		</div>
 		<h1><%= link_to event.title, event %></h1>
 		<div>
 			<%= truncate(event.body, length: 50) %>
