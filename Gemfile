@@ -33,11 +33,11 @@ gem 'paperclip', '4.3.2'
 
 gem 'bootstrap-material-design', '0.2.2'
 
-gem 'rails_admin', '0.8.1'
-
 gem 'epic-editor-rails', '0.2.4'
 
 gem 'sanitize', '4.0.1'
+
+gem 'activeadmin', '~> 1.0.0.pre2'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
