@@ -1,7 +1,7 @@
 <div class="panel">
 	<div class="panel-body">
 		<h1><%= name %></h1>
-		<%= form_for(@event) do |f| %>
+		<%= form_for(@event, html: {id: 'events_form'}) do |f| %>
 			<% @event.errors.full_messages.each do |message| %>
 				<div class="alert alert-warning">
 					* <%= message %>
@@ -16,7 +16,9 @@
 			</div>
 			<div class="form-group form-group-material-indigo">
 				<%= label_tag(:body, 'Descripción') %>
-				<%= f.text_area :body, placeholder: 'Escribe la descripción del evento', class:'form-control', rows: 20 %>
+				<div id="epiceditor" style="height:250px;"></div>
+				<%= f.hidden_field :body, id: 'event-body' %>
+				<%= f.hidden_field :markup_body, id: 'event-body-markup' %>
 			</div>
 			<div class="form-group">
 				<%= f.submit 'Guardar', class:'btn btn-success' %>
@@ -24,3 +26,18 @@
 		<% end %>
 	</div>
 </div>
+
+<script>
+	var editor = new EpicEditor({
+		textarea: 'event-body-markup',
+		file: {
+			name: 'new_event',
+		},
+	}).load();
+
+	$( '#events_form' ).on( 'submit', function () {
+		$( '#event-body' ).val( editor.exportFile( 'new_event', 'html' ) );
+		$( '#event-body-markup' ).val( editor.exportFile( 'new_event' ) );
+	});
+
+</script>

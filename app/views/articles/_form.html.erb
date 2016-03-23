@@ -1,7 +1,7 @@
 <div class="panel">
 	<div class="panel-body">
 		<h1><%= name %></h1>
-		<%= form_for(@article) do |f| %>
+		<%= form_for(@article, html: {id: 'articles_form'}) do |f| %>
 			<% @article.errors.full_messages.each do |message| %>
 				<div class="alert alert-warning">
 					* <%= message %>
@@ -16,7 +16,9 @@
 			</div>
 			<div class="form-group form-group-material-indigo">
 				<%= label_tag(:body, 'Descripción') %>
-				<%= f.text_area :body, placeholder: 'Escribe aquí el artículo', class:'form-control', rows: 20 %>
+				<div id="epiceditor" style="height:250px;"></div>
+				<%= f.hidden_field :body, id: 'article-body' %>
+				<%= f.hidden_field :markup_body, id: 'article-body-markup' %>
 			</div>
 			<label>Categorías</label>
 			<div class="form-group">
@@ -38,3 +40,18 @@
 		<% end %>
 	</div>
 </div>
+
+<script>
+	var editor = new EpicEditor({
+		textarea: 'article-body-markup',
+		file: {
+			name: 'new_article',
+		},
+	}).load();
+
+	$( '#articles_form' ).on( 'submit', function () {
+		$( '#article-body' ).val( editor.exportFile( 'new_article', 'html' ) );
+		$( '#article-body-markup' ).val( editor.exportFile( 'new_article' ) );
+	});
+
+</script>

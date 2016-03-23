@@ -3,7 +3,7 @@
 		<h1><%= @about_gdg.title %></h1>
 		<div>
 			<p>
-				<%= @about_gdg.body %>
+				<%= Sanitize.fragment(@about_gdg.body, Sanitize::Config::RELAXED).html_safe %>
 			</p>
 		</div>
 		<div>

@@ -5,7 +5,7 @@
 		</div>
 		<h1><%= link_to event.title, event %></h1>
 		<div>
-			<%= truncate(event.body, length: 50) %>
+			<%= truncate(Sanitize.fragment(event.body).html_safe, length: 50) %>
 			<% if user_signed_in? %>
 				<% if current_user.is_editor? %>
 					- <%= link_to 'Eliminar', event, method: :delete %>

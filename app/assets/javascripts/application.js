@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require bootstrap-material-design
 //= require turbolinks
+//= require epiceditor
 //= require_tree .
+ 

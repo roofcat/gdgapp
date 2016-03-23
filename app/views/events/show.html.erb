@@ -12,7 +12,7 @@
 				Visitas: <%= @event.visits_count %>
 			</p>
 			<p>
-				<%= @event.body %>
+				<%= Sanitize.fragment(@event.body, Sanitize::Config::RELAXED).html_safe %>
 			</p>
 		</div>
 		<div>

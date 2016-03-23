@@ -45,7 +45,7 @@ class AboutGdgsController < ApplicationController
 		end
 
 		def about_gdg_params
-			params.require(:about_gdg).permit(:title, :body)
+			params.require(:about_gdg).permit(:title, :body, :markup_body)
 		end
 
 end
